@@ -1,0 +1,22 @@
+clear all
+clc
+
+syms s
+% G = (s+0.15)/(s^2+0.7*s+1)
+
+num = [1,0.15];
+den = sym2poly(10.7*s+1);
+
+G = tf(num,den);
+
+H = 1;
+
+Kp = 5;
+Ki = 0;
+Kd = 0;
+
+C = pid(Kp,Ki,Kd);
+
+T = feedback(C*G,H);
+
+step(T)

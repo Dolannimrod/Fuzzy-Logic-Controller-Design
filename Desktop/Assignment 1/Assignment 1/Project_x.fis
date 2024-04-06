@@ -1,0 +1,40 @@
+[System]
+Name='Project_x'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Work'
+Range=[0 15]
+NumMFs=3
+MF1='Bad':'trimf',[0 2.5 5]
+MF2='Average':'trimf',[4.96346555323591 7.28079331941545 10]
+MF3='Good':'trimf',[8 11 15]
+
+[Input2]
+Name='Pay'
+Range=[0 15]
+NumMFs=2
+MF1='MIn_P':'trimf',[1.45615866388309 5.08872651356994 9.37891440501044]
+MF2='Max_P':'trimf',[9.25365344467641 12.0093945720251 14.9843423799582]
+
+[Output1]
+Name='Bonus'
+Range=[0 15]
+NumMFs=2
+MF1='No_bonus':'trimf',[0 4.33716 8.40814]
+MF2='Bonus':'trimf',[8.47077244258873 11.1951983298539 15]
+
+[Rules]
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+1 0, 1 (1) : 1
+3 0, 2 (1) : 1
